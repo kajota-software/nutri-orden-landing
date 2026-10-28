@@ -1,0 +1,96 @@
+/* NutriOrden — design tokens. Fuente de verdad: tokens.json */
+:root, [data-theme="light"] {
+  --nu-bg: #FAFAF7;
+  --nu-surface: #FFFFFF;
+  --nu-surface-sage: #EDF4E8;
+  --nu-avena: #EFE9DF;
+  --nu-line: #DDE2D6;
+  --nu-ink: #1F2620;
+  --nu-ink-muted: #5C6559;
+  --nu-sage-300: #B9D3AC;
+  --nu-brand: #5E8B52;
+  --nu-primary: #4F7A44;
+  --nu-primary-hover: #436A39;
+  --nu-on-primary: #FFFFFF;
+  --nu-deep: #2C4228;
+  --nu-success: #3F6B3A;
+  --nu-warning: #96600F;
+  --nu-danger: #A63D32;
+  --nu-shadow-sm: 0 1px 2px rgba(31,38,32,0.06), 0 1px 3px rgba(31,38,32,0.08);
+  --nu-shadow-lg: 0 12px 32px rgba(31,38,32,0.10);
+  --nu-font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --nu-font-sans: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --nu-space-1: 4px;
+  --nu-space-2: 8px;
+  --nu-space-3: 12px;
+  --nu-space-4: 16px;
+  --nu-space-6: 24px;
+  --nu-space-8: 32px;
+  --nu-space-12: 48px;
+  --nu-space-16: 64px;
+  --nu-space-24: 96px;
+  --nu-radius-sm: 8px;
+  --nu-radius-md: 12px;
+  --nu-radius-lg: 20px;
+  --nu-radius-pill: 999px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --nu-bg: #121712;
+    --nu-surface: #1A201A;
+    --nu-surface-sage: #20291E;
+    --nu-avena: #2A2620;
+    --nu-line: #2F382D;
+    --nu-ink: #EEF1EA;
+    --nu-ink-muted: #A7B0A2;
+    --nu-sage-300: #4A5E42;
+    --nu-brand: #8FBF7E;
+    --nu-primary: #A8CC98;
+    --nu-primary-hover: #BCDAAE;
+    --nu-on-primary: #121712;
+    --nu-deep: #26381F;
+    --nu-success: #9CCB92;
+    --nu-warning: #E0B66A;
+    --nu-danger: #E89A8F;
+    --nu-shadow-sm: 0 1px 2px rgba(0,0,0,0.4);
+    --nu-shadow-lg: 0 12px 32px rgba(0,0,0,0.5);
+  }
+}
+
+[data-theme="dark"] {
+  --nu-bg: #121712;
+  --nu-surface: #1A201A;
+  --nu-surface-sage: #20291E;
+  --nu-avena: #2A2620;
+  --nu-line: #2F382D;
+  --nu-ink: #EEF1EA;
+  --nu-ink-muted: #A7B0A2;
+  --nu-sage-300: #4A5E42;
+  --nu-brand: #8FBF7E;
+  --nu-primary: #A8CC98;
+  --nu-primary-hover: #BCDAAE;
+  --nu-on-primary: #121712;
+  --nu-deep: #26381F;
+  --nu-success: #9CCB92;
+  --nu-warning: #E0B66A;
+  --nu-danger: #E89A8F;
+  --nu-shadow-sm: 0 1px 2px rgba(0,0,0,0.4);
+  --nu-shadow-lg: 0 12px 32px rgba(0,0,0,0.5);
+}
+
+/* Estilos de texto */
+.nu-text-display-xl { font-family: var(--nu-font-display); font-size: 64px; line-height: 68px; font-weight: 500; letter-spacing: -0.02em; }
+.nu-text-display-l { font-family: var(--nu-font-display); font-size: 44px; line-height: 50px; font-weight: 500; letter-spacing: -0.015em; }
+.nu-text-heading-1 { font-family: var(--nu-font-display); font-size: 32px; line-height: 38px; font-weight: 500; letter-spacing: -0.01em; }
+.nu-text-heading-2 { font-family: var(--nu-font-sans); font-size: 24px; line-height: 30px; font-weight: 600; letter-spacing: 0; }
+.nu-text-heading-3 { font-family: var(--nu-font-sans); font-size: 18px; line-height: 24px; font-weight: 600; letter-spacing: 0; }
+.nu-text-body-l { font-family: var(--nu-font-sans); font-size: 18px; line-height: 28px; font-weight: 400; letter-spacing: 0; }
+.nu-text-body { font-family: var(--nu-font-sans); font-size: 16px; line-height: 24px; font-weight: 400; letter-spacing: 0; }
+.nu-text-body-s { font-family: var(--nu-font-sans); font-size: 14px; line-height: 20px; font-weight: 400; letter-spacing: 0; }
+.nu-text-label { font-family: var(--nu-font-sans); font-size: 14px; line-height: 20px; font-weight: 600; letter-spacing: 0; }
+.nu-text-caption { font-family: var(--nu-font-sans); font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.02em; }
+.nu-text-metric { font-family: var(--nu-font-sans); font-size: 28px; line-height: 32px; font-weight: 600; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+
+body { background: var(--nu-bg); color: var(--nu-ink); font-family: var(--nu-font-sans); font-size: 16px; line-height: 24px; }
+:focus-visible { outline: 2px solid var(--nu-primary); outline-offset: 2px; }

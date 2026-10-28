@@ -1,26 +1,79 @@
 @import "tailwindcss";
+@import "../brand/tokens/tokens.css";
+@import "../brand/tokens/tailwind.theme.css";
 
+/* Fuentes cargadas con next/font (ver app/layout.tsx), conectadas a los tokens. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --nu-font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --nu-font-sans: var(--font-figtree), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --nu-header-h: 64px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nu-header-h) + var(--nu-space-4));
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+/* Contenedor de la landing: 1120px, gutter 16px en móvil y 24px desde 768px. */
+@utility container-nu {
+  width: 100%;
+  max-width: calc(1120px + 2 * var(--nu-space-4));
+  margin-inline: auto;
+  padding-inline: var(--nu-space-4);
+  @media (width >= 768px) {
+    max-width: calc(1120px + 2 * var(--nu-space-6));
+    padding-inline: var(--nu-space-6);
+  }
+}
+
+/* Separación entre secciones: 64px en móvil, 96px en desktop. */
+@utility section-y {
+  padding-block: var(--nu-space-16);
+  @media (width >= 768px) {
+    padding-block: var(--nu-space-24);
+  }
+}
+
+/* Aparición al hacer scroll: fundido + 12px, 400ms, una sola vez. */
+.js-reveal [data-reveal]:not([data-revealed]) {
+  opacity: 0;
+  transform: translateY(12px);
+}
+[data-reveal] {
+  transition:
+    opacity 400ms ease-out,
+    transform 400ms ease-out;
+}
+
+/* Transición lateral entre preguntas de la evaluación. */
+@keyframes nu-slide-next {
+  from { opacity: 0; transform: translateX(24px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes nu-slide-prev {
+  from { opacity: 0; transform: translateX(-24px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes nu-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+.nu-slide-next { animation: nu-slide-next 300ms ease-out both; }
+.nu-slide-prev { animation: nu-slide-prev 300ms ease-out both; }
+.nu-fade-in { animation: nu-fade-in 400ms ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js-reveal [data-reveal]:not([data-revealed]) { opacity: 1; transform: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
