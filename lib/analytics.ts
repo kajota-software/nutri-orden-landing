@@ -3,7 +3,7 @@
  * están configurados (NEXT_PUBLIC_META_PIXEL_ID / NEXT_PUBLIC_GA_ID).
  */
 
-type MetaEvent = "PageView" | "ViewContent" | "Lead" | "Schedule";
+type MetaEvent = "PageView" | "ViewContent" | "Lead";
 
 declare global {
   interface Window {
@@ -16,7 +16,6 @@ const GA_EVENT: Record<MetaEvent, string> = {
   PageView: "page_view",
   ViewContent: "evaluacion_inicio",
   Lead: "generate_lead",
-  Schedule: "agendar_llamada",
 };
 
 export function track(event: MetaEvent, params?: Record<string, string | number>) {

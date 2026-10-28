@@ -224,7 +224,14 @@ export function EvaluacionFlow() {
   if (phase === "analyzing") return <AnalysisScreen onDone={finish} />;
 
   if (phase === "result" && evaluacion) {
-    return <ResultView evaluacion={evaluacion} name={draft.contact.nombre ?? ""} email={draft.contact.correo ?? ""} />;
+    return (
+      <ResultView
+        evaluacion={evaluacion}
+        name={draft.contact.nombre ?? ""}
+        whatsapp={draft.contact.whatsapp ?? ""}
+        email={draft.contact.correo ?? ""}
+      />
+    );
   }
 
   if (phase === "error") {

@@ -1,7 +1,6 @@
 /**
  * Textos de /evaluacion. Las opciones de respuesta y sus puntos viven en lib/qualification.ts.
  */
-import type { MotivoNoCalifica } from "@/lib/qualification";
 
 export const evaluacionMeta = {
   title: "Evaluación — NutriOrden",
@@ -11,7 +10,7 @@ export const evaluacionMeta = {
 export const intro = {
   title: "Veamos si NutriOrden es para tu consulta.",
   subtitle:
-    "Responde 8 preguntas (2 minutos). Al final te decimos si podemos ayudarte y cuántos pacientes podrías estar perdiendo hoy.",
+    "Responde 8 preguntas (2 minutos). Al final ves cuántos pacientes podrías estar perdiendo hoy y te contactamos para contarte si podemos ayudarte.",
 };
 
 export const vsl = {
@@ -28,7 +27,7 @@ export const questions = {
   horas: { title: "¿Cuántas horas por semana dedicas a armar planes y responder dudas?" },
   dolores: { title: "¿Qué es lo que más te cuesta hoy?", hint: "Puedes elegir varias." },
   urgencia: { title: "¿Qué tan pronto quieres resolverlo?" },
-  contacto: { title: "¿A dónde te enviamos tu resultado?", hint: "Solo lo usamos para darte seguimiento." },
+  contacto: { title: "¿Cómo te contactamos?", hint: "Solo lo usamos para darte seguimiento." },
 } as const;
 
 export const contactFields = {
@@ -61,7 +60,7 @@ export const countries = [
 export const buttons = {
   next: "Siguiente",
   back: "Atrás",
-  submit: "Ver mi resultado",
+  submit: "Enviar mis respuestas",
   retry: "Reintentar",
 };
 
@@ -76,38 +75,22 @@ export const analysis = {
     "Revisando el tamaño de tu consulta…",
     "Calculando cuántos pacientes podrías estar perdiendo…",
     "Analizando el tiempo que dedicas a planes y seguimiento…",
-    "Preparando tu resultado…",
+    "Guardando tus respuestas…",
   ],
 };
 
 export const result = {
-  estimateLabel: "Estimación con tus respuestas",
+  title: (nombre: string) => `Gracias, ${nombre}. Recibimos tus respuestas.`,
+  text: "Vamos a analizar la información de tu consulta y te contactamos en menos de 24 horas hábiles.",
+  contactLine: (whatsapp: string, correo: string) => `Te escribiremos al ${whatsapp} o a ${correo}.`,
+  nextTitle: "En esa conversación",
+  next: [
+    "Te contamos si NutriOrden encaja con tu consulta.",
+    "Revisamos juntos cuántos pacientes podrías recuperar.",
+    "Si encaja, dejamos tu consulta lista para empezar.",
+  ],
+  estimateLabel: "Mientras tanto, una estimación con tus respuestas",
   estimate: (pacientes: number, enRiesgo: number, recuperar: number, valor: string) =>
     `De tus ~${pacientes} pacientes, alrededor de ${enRiesgo} podrían no llegar a la tercera consulta. Recuperar solo ${recuperar} equivale a ~${valor} al mes.`,
-  califica: {
-    title: "Tu consulta califica. Podemos ayudarte a que tus pacientes vuelvan.",
-    text: "Agenda una llamada corta para ver tu caso y dejar tu consulta lista.",
-    button: "Agendar mi llamada",
-    note: "Te escribimos por WhatsApp en menos de 24 horas.",
-    whatsappText: "Hola, mi consulta calificó en la evaluación de NutriOrden y quiero agendar mi llamada.",
-  },
-  aunNo: {
-    title: "Tu consulta tiene potencial. Cuando estés lista, aquí estamos.",
-    text: "Te enviaremos ideas para mejorar la retención de tus pacientes.",
-    button: "Escribirnos por WhatsApp",
-    whatsappText: "Hola, hice la evaluación de NutriOrden y quiero saber más.",
-  },
-  noCalifica: {
-    title: "Por ahora NutriOrden no es la mejor opción para tu consulta.",
-    reasons: {
-      tamano:
-        "Hoy atiendes menos de 10 pacientes al mes. NutriOrden rinde de verdad cuando tienes varios pacientes a los que dar seguimiento al mismo tiempo, y no queremos que pagues por algo que todavía no vas a aprovechar.",
-      volumen:
-        "Con la facturación actual de tu consulta, la inversión todavía no se justificaría, y preferimos decírtelo con claridad.",
-      dolor:
-        "Por tus respuestas, tus pacientes ya vuelven y tu forma de trabajar te está funcionando. Eso es una gran señal.",
-    } satisfies Record<MotivoNoCalifica, string>,
-    invite: "Cuando tu consulta crezca, vuelve a hacer la evaluación. Aquí vamos a estar.",
-    back: "Volver al inicio",
-  },
+  back: "Volver al inicio",
 };
